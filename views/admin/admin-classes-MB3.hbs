@@ -1,0 +1,150 @@
+<div class="admin-class-container">
+  <div class="header mb-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h2 class="fw-bold">Class MB3</h2>
+        <p class="text-muted">Student List ({{usersCount.MB3}} students)</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="student-search mb-4">
+    <div class="input-group">
+      <span class="input-group-text bg-white">
+        <i class="bi bi-search"></i>
+      </span>
+      <input type="text" class="form-control" placeholder="Search students...">
+      <button class="btn btn-outline-secondary" type="button">
+        <i class="bi bi-funnel-fill me-1"></i> Filter
+      </button>
+    </div>
+  </div>
+
+  <div class="student-grid">
+    {{#each studentdetails}}
+    <!-- Student Card 1 -->
+    <div class="student-card">
+      <div class="profile-img">
+        <img src="/profile-images/{{this._id}}.jpg" alt="Student profile" class="img-fluid rounded-circle">
+      </div>
+      <div class="student-info">
+        <h5 class="student-name">{{this.FirstName}} {{this.LastName}}</h5>
+        <div class="student-details">
+          <p class="mb-1">
+            <i class="bi bi-telephone-fill me-2"></i>
+            {{this.MobileNumber}}
+          </p>
+          <p class="mb-0">
+            <i class="bi bi-geo-alt-fill me-2"></i>
+            {{this.Place}}
+          </p>
+        </div>
+      </div>
+      <div class="student-actions">
+        <button class="btn btn-sm btn-outline-primary">
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button class="btn btn-sm btn-outline-danger">
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+    {{/each}}
+    <!-- Add more student cards as needed -->
+  </div>
+</div>
+
+<style>
+    .admin-class-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.student-search {
+  max-width: 600px;
+}
+
+.student-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.student-card {
+  display: flex;
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  transition: all 0.3s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-color: #0d6efd;
+}
+
+.profile-img {
+  width: 70px;
+  height: 70px;
+  margin-right: 1.5rem;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.student-info {
+  flex: 1;
+}
+
+.student-name {
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.student-details {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.student-details i {
+  width: 20px;
+  text-align: center;
+}
+
+.student-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .student-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .student-card {
+    padding: 1rem;
+  }
+  
+  .profile-img {
+    width: 60px;
+    height: 60px;
+    margin-right: 1rem;
+  }
+}
+</style>

@@ -1,0 +1,270 @@
+<div class="attendance-container">
+  <div class="header mb-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h2 class="fw-bold">Mark Attendance - M4 Class</h2>
+        <div class="d-flex align-items-center gap-3">
+          <p class="text-muted mb-0">Date: <span class="fw-bold">{{currentDate}}</span></p>
+          <button class="btn btn-sm btn-outline-secondary">
+            <i class="bi bi-calendar3 me-1"></i> Change Date
+          </button>
+        </div>
+      </div>
+      <div class="d-flex gap-2">
+        <!-- Back Button -->
+        <a href="/admin/mark-attendance" class="btn btn-outline-secondary">
+          <i class="bi bi-arrow-left me-1"></i> Back
+        </a>
+
+        <div class="btn-group">
+          <button class="btn btn-outline-success">
+            <i class="bi bi-check-circle me-1"></i> Mark All Present
+          </button>
+          <button class="btn btn-outline-danger">
+            <i class="bi bi-x-circle me-1"></i> Mark All Absent
+          </button>
+        </div>
+        <button class="btn btn-primary">
+          <i class="bi bi-save me-1"></i> Save Attendance
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="student-attendance-list">
+    {{#each studentdetails}}
+    <!-- Student 1 -->
+    <div class="student-card">
+      <div class="row g-0">
+        <div class="col-md-1 d-flex align-items-center justify-content-center">
+          <img src="/profile-images/{{this._id}}.jpg" alt="Profile" class="profile-img rounded-circle">
+        </div>
+        <div class="col-md-9">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <h5 class="student-name">{{this.FirstName}} {{this.LastName}}</h5>
+                <p class="student-class text-muted">{{this.Class}} Class</p>
+              </div>
+              <div class="col-md-4">
+                <p class="student-mobile">
+                  <i class="bi bi-telephone-fill text-primary me-2"></i>
+                  +91 {{this.MobileNumber}}
+                </p>
+              </div>
+              <div class="col-md-4">
+                <p class="student-place">
+                  <i class="bi bi-geo-alt-fill text-primary me-2"></i>
+                  {{this.Place}}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2 d-flex align-items-center justify-content-center">
+          <div class="attendance-toggle">
+            <div class="btn-group" role="group">
+              <a href="javascript:void(0);"
+                onclick="markAttendance('{{this._id}}','{{this.FirstName}}_{{this.LastName}}','present', this)"
+                class="btn btn-outline-success">
+                Present
+              </a>
+
+              <a href="javascript:void(0);"
+                onclick="markAttendance('{{this._id}}','{{this.FirstName}}_{{this.LastName}}','absent', this)"
+                class="btn btn-outline-danger">
+                Absent
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    <!-- Add more student cards as needed -->
+  </div>
+
+  <div class="attendance-summary mt-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h3 class="fw-bold">{{usersCount.M4}}</h3>
+            <p class="text-muted">Total Students</p>
+          </div>
+          <div class="col-md-4">
+            <h3 class="fw-bold text-success">22</h3>
+            <p class="text-muted">Present</p>
+          </div>
+          <div class="col-md-4">
+            <h3 class="fw-bold text-danger">2</h3>
+            <p class="text-muted">Absent</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="attendance-actions mt-4">
+    <button class="btn btn-primary me-2">
+      <i class="bi bi-save me-1"></i> Save Attendance
+    </button>
+    <button class="btn btn-outline-secondary me-2">
+      <i class="bi bi-printer me-1"></i> Print Report
+    </button>
+    <button class="btn btn-outline-danger">
+      <i class="bi bi-envelope me-1"></i> Notify Absentees
+    </button>
+  </div>
+</div>
+
+<style>
+  .attendance-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+
+  .student-attendance-list {
+    margin-top: 2rem;
+  }
+
+  .student-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .student-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+  }
+
+  .profile-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  .card-body {
+    padding: 1.5rem;
+  }
+
+  .student-name {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .student-class {
+    font-size: 0.9rem;
+  }
+
+  .student-mobile,
+  .student-place {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .attendance-toggle .btn-group {
+    width: 100%;
+  }
+
+  .attendance-toggle .btn {
+    width: 50%;
+  }
+
+  .attendance-summary .card {
+    border: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .attendance-summary h3 {
+    font-size: 2rem;
+  }
+
+  .attendance-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 992px) {
+    .student-card .col-md-9 {
+      border-top: 1px solid #eee;
+      padding-top: 1rem;
+    }
+
+    .profile-img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .header .btn-group {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+
+    .student-card .row>div {
+      width: 100%;
+    }
+
+    .student-card .col-md-1 {
+      order: -1;
+      margin-bottom: 1rem;
+      justify-content: flex-start;
+    }
+
+    .student-card .col-md-9 {
+      border-top: none;
+    }
+
+    .attendance-toggle {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .attendance-actions {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .attendance-actions .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<script>
+  async function markAttendance(id, name, status, btn) {
+    try {
+      const res = await fetch(`/admin/mark-${status}-M4/${id}/${name}`);
+      if (res.ok) {
+        // Remove that student's card from the DOM
+        btn.closest('.student-card').remove();
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error marking attendance");
+    }
+  }
+</script>

@@ -1,0 +1,414 @@
+<div class="attendance-container">
+  <div class="header mb-4">
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <h2 class="fw-bold">Mark Attendance</h2>
+        <p class="text-muted">Select a class to mark attendance</p>
+      </div>
+      <div class="d-flex gap-2">
+        <div class="input-group" style="width: 250px;">
+          <span class="input-group-text bg-white">
+            <i class="bi bi-calendar-fill"></i>
+          </span>
+          <input type="date" class="form-control" id="attendanceDate" value="{{currentDate}}">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="class-grid">
+    <!-- Class E1 -->
+    <div class="class-card">
+      <div class="class-header bg-primary text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class E1</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/E1" class="btn btn-primary">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/E1" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class E2 -->
+    <div class="class-card">
+      <div class="class-header bg-success text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class E2</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/E2" class="btn btn-success">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/E2" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class E3 -->
+    <div class="class-card">
+      <div class="class-header bg-info text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class E3</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/E3" class="btn btn-info text-white">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/E3" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class E4 -->
+    <div class="class-card">
+      <div class="class-header bg-warning text-dark">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class E4</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/E4" class="btn btn-warning">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/E4" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class MB3 -->
+    <div class="class-card">
+      <div class="class-header bg-danger text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class MB3</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/MB3" class="btn btn-danger">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/MB3" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class M3 -->
+    <div class="class-card">
+      <div class="class-header bg-secondary text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class M3</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/M3" class="btn btn-secondary">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/M3" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class M4 -->
+    <div class="class-card">
+      <div class="class-header bg-dark text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class M4</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/M4" class="btn btn-dark">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/M4" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Class MMB -->
+    <div class="class-card">
+      <div class="class-header bg-purple text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Class MMB</span>
+      </div>
+      <div class="class-body">
+        <div class="class-stats">
+          <div class="stat-item">
+            <span id="presentToday" class="stat-value">{{presentCount}}</span>
+            <span class="stat-label">Present Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="absentToday" class="stat-value">{{absentCount}}</span>
+            <span class="stat-label">Absent Today</span>
+          </div>
+
+          <div class="stat-item">
+            <span id="totalToday" class="stat-value">{{totalCount}}</span>
+            <span class="stat-label">Total Marked</span>
+          </div>
+
+
+        </div>
+        <div class="class-actions">
+          <a href="/admin/mark-attendance/MMB" class="btn btn-purple">
+            <i class="bi bi-pencil-square me-1"></i> Mark Attendance
+          </a>
+          <a href="/admin/attendance-report/MMB" class="btn btn-outline-secondary">
+            <i class="bi bi-file-earmark-text me-1"></i> View Report
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .attendance-container {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .class-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+  }
+
+  .class-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .class-header {
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .class-body {
+    padding: 1.5rem;
+  }
+
+  .class-stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.8rem;
+    color: #666;
+    display: block;
+  }
+
+  .class-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-purple {
+    background-color: #6f42c1;
+    color: white;
+    border-color: #6f42c1;
+  }
+
+  .btn-purple:hover {
+    background-color: #5a32a8;
+    color: white;
+  }
+
+  .bg-purple {
+    background-color: #6f42c1 !important;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .header .input-group {
+      width: 100% !important;
+    }
+
+    .class-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

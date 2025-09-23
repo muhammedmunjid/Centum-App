@@ -1,0 +1,67 @@
+<div class="row justify-content-center align-items-center min-vh-100" style="background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);">
+    <div class="col-md-8 col-lg-6">
+        <div class="card shadow-lg border-0 rounded-4 p-4 my-5" style="background: rgba(255,255,255,0.95);">
+            <h2 class="text-center mb-4" style="font-weight: 700; letter-spacing: 1px; color: #2c3e50;">Create New Account</h2>
+            <form action="/signup" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="uploadImage" class="form-label font-weight-bold">Profile Image</label>
+                    <input type="file" class="form-control" id="uploadImage" name="image" accept="image/*">
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="firstName" class="form-label font-weight-bold">First Name</label>
+                            <input type="text" class="form-control rounded-pill px-4" id="firstName" name="FirstName" placeholder="Enter First Name" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-3">
+                            <label for="lastName" class="form-label font-weight-bold">Last Name</label>
+                            <input type="text" class="form-control rounded-pill px-4" id="lastName" name="LastName" placeholder="Enter Last Name" required>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="mobileNumber" class="form-label font-weight-bold">Mobile Number</label>
+                    <div class="input-group">
+                        <span class="input-group-text rounded-start-pill">+91</span>
+                        <input type="tel" class="form-control rounded-end-pill" id="mobileNumber" name="MobileNumber" placeholder="9876543210" pattern="[0-9]{10}" required>
+                    </div>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="place" class="form-label font-weight-bold">Place</label>
+                    <input type="text" class="form-control rounded-pill px-4" id="place" name="Place" placeholder="Enter your location" required>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="email" class="form-label font-weight-bold">Email Address</label>
+                    <input type="email" class="form-control rounded-pill px-4" id="email" name="Email" placeholder="Enter Email" required>
+                </div>
+                
+                <div class="form-group mb-3">
+                    <label for="password" class="form-label font-weight-bold">Password</label>
+                    <input type="password" class="form-control rounded-pill px-4" id="password" name="Password" placeholder="Password" required>
+                </div>
+                
+                <div class="form-group mb-4">
+                    <label for="classSelect" class="form-label font-weight-bold">Select Class</label>
+                    <select class="form-control rounded-pill px-4" id="classSelect" name="Class" required>
+                        <option value="" disabled selected>Select Class</option>
+                        {{#each classes}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <a href="/login" class="text-decoration-none" style="color: #2980b9;">Already have an account?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block rounded-pill py-2" style="font-weight: 600; letter-spacing: 1px;">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</div>

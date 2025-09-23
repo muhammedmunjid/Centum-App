@@ -1,0 +1,117 @@
+<div class="admin-home-container">
+  <div class="header mb-4">
+    <h2 class="fw-bold">Class Management</h2>
+    <p class="text-muted">Select a class to view or manage students</p>
+  </div>
+
+  <div class="class-buttons-grid">
+    <!-- Class Buttons -->
+    <a href="/admin/classes/E1" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">E1</span>
+      <small class="text-muted">Students: {{usersCount.E1}}</small>
+    </a>
+
+    <a href="/admin/classes/E2" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">E2</span>
+      <small class="text-muted">Students: {{usersCount.E2}}</small>
+    </a>
+
+    <a href="/admin/classes/E3" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">E3</span>
+      <small class="text-muted">Students: {{usersCount.E3}}</small>
+    </a>
+
+    <a href="/admin/classes/E4" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">E4</span>
+      <small class="text-muted">Students: {{usersCount.E4}}</small>
+    </a>
+
+    <a href="/admin/classes/MB3" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">MB3</span>
+      <small class="text-muted">Students: {{usersCount.MB3}}</small>
+    </a>
+
+    <a href="/admin/classes/M3" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">M3</span>
+      <small class="text-muted">Students: {{usersCount.M3}}</small>
+    </a>
+
+    <a href="/admin/classes/M4" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">M4</span>
+      <small class="text-muted">Students: {{usersCount.M4}}</small>
+    </a>
+
+    <a href="/admin/classes/MMB" class="class-card btn btn-outline-primary">
+      <i class="bi bi-people-fill class-icon"></i>
+      <span class="class-name">MMB</span>
+      <small class="text-muted">Students: {{usersCount.MMB}}</small>
+    </a>
+
+    <!-- Add New Class Button -->
+    <button class="class-card btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#addClassModal">
+      <i class="bi bi-plus-circle-dotted class-icon"></i>
+      <span class="class-name">Add Class</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  .admin-home-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+  }
+
+  .class-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .class-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #dee2e6;
+    padding: 1.5rem;
+  }
+
+  .class-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: #0d6efd;
+  }
+
+  .class-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+    color: #0d6efd;
+  }
+
+  .class-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .btn-outline-secondary .class-icon {
+    color: #6c757d;
+  }
+</style>

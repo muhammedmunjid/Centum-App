@@ -1,0 +1,143 @@
+<div class="admin-about-container">
+  <div class="header mb-4">
+    <h2 class="fw-bold">About Centum</h2>
+    <p class="text-muted">Institution details and statistics</p>
+  </div>
+
+  <div class="about-grid">
+    <!-- Branch Details Box -->
+    <div class="about-card">
+      <div class="card-header bg-primary text-white">
+        <i class="bi bi-building me-2"></i>
+        <span>Branch Information</span>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">Centum Tution Centre</h3>
+        <div class="card-text">
+          <p class="d-flex align-items-center">
+            <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+            Cherpulassery Branch
+          </p>
+          <p class="d-flex align-items-center">
+            <i class="bi bi-telephone-fill me-2 text-primary"></i>
+            +91 XXXXX XXXXX
+          </p>
+          <p class="d-flex align-items-center">
+            <i class="bi bi-envelope-fill me-2 text-primary"></i>
+            info@centumcherpulassery.com
+          </p>
+          <p class="d-flex align-items-center">
+            <i class="bi bi-clock-fill me-2 text-primary"></i>
+            Mon-Sat: 9:00 AM - 7:00 PM
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Student Count Box -->
+    <div class="about-card">
+      <div class="card-header bg-success text-white">
+        <i class="bi bi-people-fill me-2"></i>
+        <span>Student Statistics</span>
+      </div>
+      <div class="card-body text-center">
+        <div class="student-count-display">
+          <h1 class="display-3 fw-bold">178</h1>
+          <p class="lead">Total Students</p>
+        </div>
+        <hr>
+        <div class="row text-center">
+          <div class="col-md-6">
+            <h5 class="fw-bold">125</h5>
+            <small class="text-muted">Regular</small>
+          </div>
+          <div class="col-md-6">
+            <h5 class="fw-bold">53</h5>
+            <small class="text-muted">Weekend</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Info Box -->
+  <div class="about-info mt-4">
+    <div class="card">
+      <div class="card-header bg-light">
+        <i class="bi bi-info-circle-fill me-2 text-primary"></i>
+        <span>About Our Centre</span>
+      </div>
+      <div class="card-body">
+        <p class="card-text">
+          Centum Tution Centre in Cherpulassery Barach provides quality education 
+          with personalized attention. Our experienced faculty and comprehensive 
+          study materials help students achieve academic excellence.
+        </p>
+        <p class="card-text">
+          Established in 2015, we've helped over 1000 students achieve their 
+          educational goals through our structured programs and regular assessments.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+    .admin-about-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.about-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+}
+
+.card-header {
+  padding: 1rem 1.5rem;
+  font-weight: 500;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.student-count-display {
+  margin: 1rem 0;
+}
+
+.about-info .card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.about-info .card-header {
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

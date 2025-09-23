@@ -1,0 +1,112 @@
+<div class="admin-add-students-container">
+    <div class="header mb-4">
+        <h2 class="fw-bold">Add New Student</h2>
+        <p class="text-muted">Enter student details below</p>
+    </div>
+
+    <form class="student-form" method="POST" action="/admin/add-students">
+        <!-- Last Name Input -->
+        <div class="mb-4">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control" id="lastName" name="LastName"
+                placeholder="Enter student's last name" required>
+            <div class="form-text">Please enter the family name/surname</div>
+        </div>
+
+        <!-- Class Selection Dropdown -->
+        <div class="mb-4">
+            <label for="studentClass" class="form-label">Class</label>
+            <select class="form-select" id="studentClass" name="studentClass" required>
+                <option value="" selected disabled>Select a class</option>
+                <option value="E1">E1</option>
+                <option value="E2">E2</option>
+                <option value="E3">E3</option>
+                <option value="E4">E4</option>
+                <option value="MB3">MB3</option>
+                <option value="M3">M3</option>
+                <option value="M4">M4</option>
+                <option value="MMB">MMB</option>
+            </select>
+            <div class="form-text">Select the class this student will join</div>
+        </div>
+
+        <!-- Form Actions -->
+        <div class="form-actions mt-4">
+            <button type="submit" class="btn btn-primary me-2">
+                <i class="bi bi-person-plus-fill me-1"></i> Add Student
+            </button>
+            <button type="reset" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+            </button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .admin-add-students-container {
+        padding: 2rem;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .header {
+        border-bottom: 1px solid #eee;
+        padding-bottom: 1rem;
+    }
+
+    .student-form {
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    .form-control,
+    .form-select {
+        padding: 0.75rem;
+        border-radius: 6px;
+        border: 1px solid #ced4da;
+        transition: border-color 0.15s ease-in-out;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+        border-color: #86b7fe;
+        box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+    }
+
+    .form-text {
+        font-size: 0.875rem;
+        color: #6c757d;
+        margin-top: 0.25rem;
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 0.75rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .admin-add-students-container {
+            padding: 1rem;
+        }
+
+        .student-form {
+            padding: 1.5rem;
+        }
+
+        .form-actions {
+            flex-direction: column;
+        }
+
+        .form-actions button {
+            width: 100%;
+        }
+    }
+</style>

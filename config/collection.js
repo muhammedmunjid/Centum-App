@@ -1,0 +1,15 @@
+module.exports = {
+    USER_COLLECTION:'user',
+    E1_COLLECTION:'E1',
+    E2_COLLECTION:'E2',
+    E3_COLLECTION:'E3',
+    E4_COLLECTION:'E4',
+    MB3_COLLECTION:'MB3',
+    M3_COLLECTION:'M3',
+    M4_COLLECTION:'M4',
+    MMB_COLLECTION:'MMB',
+    ATTENDANCE_COLLECTION:'attendance',
+    ABSENT_COLLECTION:'absent',
+    STUDENT_COLLECTION:'added-students-list',
+    DAILY_LOCK_COLLECTION: 'daily_lock'
+}
