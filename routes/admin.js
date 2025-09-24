@@ -84,20 +84,61 @@ router.get('/classes/MMB', async function (req, res, next) {
 });
 
 router.get('/mark-attendance', async function (req, res, next) {
-  let usersCount = await adminHelpers.getUsersCount();
+  try {
+    let usersCount = await adminHelpers.getUsersCount();
 
-  // Get today's attendance summary
-  const summary = await adminHelpers.getTodaySummary('E1'); // 🔥 new helper
+    // Get today's attendance summaries for E1 and E2
+    const summaryE1 = await adminHelpers.getTodaySummary('E1');
+    const summaryE2 = await adminHelpers.getTodaySummary('E2');
+    const summaryE3 = await adminHelpers.getTodaySummary('E3');
+    const summaryE4 = await adminHelpers.getTodaySummary('E4');
+    const summaryM3 = await adminHelpers.getTodaySummary('M3');
+    const summaryM4 = await adminHelpers.getTodaySummary('M4');
+    const summaryMB3 = await adminHelpers.getTodaySummary('MB3');
+    const summaryMMB = await adminHelpers.getTodaySummary('MMB');
 
-  res.render('admin/admin-mark-attendance', {
-    admin: true,
-    usersCount,
-    presentCount: summary.present,
-    absentCount: summary.absent,
-    totalCount: summary.total,
-    currentDate: summary.dateKey
-  });
+    res.render('admin/admin-mark-attendance', {
+      admin: true,
+      usersCount,
+      presentCountE1: summaryE1.present,
+      absentCountE1: summaryE1.absent,
+      totalCountE1: summaryE1.total,
+
+      presentCountE2: summaryE2.present,
+      absentCountE2: summaryE2.absent,
+      totalCountE2: summaryE2.total,
+
+      presentCountE3: summaryE3.present,
+      absentCountE3: summaryE3.absent,
+      totalCountE3: summaryE3.total,
+
+      presentCountE4: summaryE4.present,
+      absentCountE4: summaryE4.absent,
+      totalCountE4: summaryE4.total,
+
+      presentCountM3: summaryM3.present,
+      absentCountM3: summaryM3.absent,
+      totalCountM3: summaryM3.total,
+
+      presentCountM4: summaryM4.present,
+      absentCountM4: summaryM4.absent,
+      totalCountM4: summaryM4.total,
+
+      presentCountMB3: summaryMB3.present,
+      absentCountMB3: summaryMB3.absent,
+      totalCountMB3: summaryMB3.total,
+
+      presentCountMMB: summaryMMB.present,
+      absentCountMMB: summaryMMB.absent,
+      totalCountMMB: summaryMMB.total,
+
+      currentDate: summaryE1.dateKey // Assuming both summaries are for the same date
+    });
+  } catch (err) {
+    next(err);
+  }
 });
+
 
 
 router.get('/mark-attendance/E1', async function (req, res, next) {
@@ -178,7 +219,7 @@ router.get('/mark-present-E1/:id/:name', async (req, res, next) => {
 
 
 
-router.get('/mark-present-E2/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-E2/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -204,7 +245,7 @@ router.get('/mark-present-E2/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-present-E3/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-E3/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     // Decode "First_Last" -> "First Last"
@@ -227,7 +268,7 @@ router.get('/mark-present-E3/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-present-E4/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-E4/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     // Decode "First_Last" -> "First Last"
@@ -250,7 +291,7 @@ router.get('/mark-present-E4/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-present-M3/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-M3/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     // Decode "First_Last" -> "First Last"
@@ -273,7 +314,7 @@ router.get('/mark-present-M3/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-present-M4/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-M4/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     // Decode "First_Last" -> "First Last"
@@ -296,7 +337,7 @@ router.get('/mark-present-M4/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-present-MB3/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-MB3/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     // Decode "First_Last" -> "First Last"
@@ -319,7 +360,7 @@ router.get('/mark-present-MB3/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-present-MMB/:id/:name', async (req, res, next ) => {
+router.get('/mark-present-MMB/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     // Decode "First_Last" -> "First Last"
@@ -362,7 +403,7 @@ router.get('/mark-absent-E1/:id/:name', async (req, res, next) => {
 });
 
 
-router.get('/mark-absent-E2/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-E2/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -380,7 +421,7 @@ router.get('/mark-absent-E2/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-absent-E3/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-E3/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -400,7 +441,7 @@ router.get('/mark-absent-E3/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-absent-E4/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-E4/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -420,7 +461,7 @@ router.get('/mark-absent-E4/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-absent-M3/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-M3/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -440,7 +481,7 @@ router.get('/mark-absent-M3/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-absent-M4/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-M4/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -460,7 +501,7 @@ router.get('/mark-absent-M4/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-absent-MB3/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-MB3/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -480,7 +521,7 @@ router.get('/mark-absent-MB3/:id/:name', async (req, res, next ) => {
   }
 });
 
-router.get('/mark-absent-MMB/:id/:name', async (req, res, next ) => {
+router.get('/mark-absent-MMB/:id/:name', async (req, res, next) => {
   try {
     const studentId = req.params.id;
     const studentName = decodeURIComponent(req.params.name).replace(/_/g, ' ');
@@ -544,7 +585,7 @@ async function checkLock(req, res, next) {
 // Apply middleware to mark-attendance page
 router.get('/mark-attendance-E1', checkLock, async (req, res) => {
   let students = await adminHelpers.getAllStudents("E1");
-  res.render('admin/admin-mark-attendance-E1', { 
+  res.render('admin/admin-mark-attendance-E1', {
     admin: true,
     studentdetails: students,
     currentDate: getISTDateKey()
